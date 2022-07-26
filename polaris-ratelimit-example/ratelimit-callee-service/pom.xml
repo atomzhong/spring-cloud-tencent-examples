@@ -43,7 +43,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.tencent.polaris</groupId>
-			<artifactId>stat-prometheus</artifactId>
+			<artifactId>stat-pushgateway</artifactId>
+			<version>1.7.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

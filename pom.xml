@@ -32,7 +32,7 @@
 
     <properties>
         <!-- Project revision -->
-        <revision>1.0.0-SNAPSHOT</revision>
+        <revision>${spring.cloud.tencent.version}</revision>
 
         <spring.cloud.tencent.version>1.7.0-Hoxton.SR12-SNAPSHOT</spring.cloud.tencent.version>
 

@@ -15,9 +15,6 @@ spring:
         heartbeat:
           enabled: true
         health-check-url: /discovery/service/caller/healthCheck
-      stat:
-        enabled: true
-        port: 28081
 management:
   endpoints:
     web:

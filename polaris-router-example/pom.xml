@@ -34,12 +34,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>com.tencent.polaris</groupId>
-			<artifactId>stat-pushgateway</artifactId>
-			<version>1.7.2-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 
 </project>

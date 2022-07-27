@@ -14,4 +14,6 @@ spring:
       enabled: true
       loadbalancer:
         enabled: true
+      stat:
+        enabled: true
 

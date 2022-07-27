@@ -12,6 +12,8 @@ spring:
         enabled: true
         rejectRequestTipsFilePath: reject-tips.html
         maxQueuingTime: 500
+      stat:
+        enabled: true
 
 management:
   endpoints:

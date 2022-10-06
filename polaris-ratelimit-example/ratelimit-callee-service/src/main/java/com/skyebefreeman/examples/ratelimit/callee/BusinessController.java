@@ -18,6 +18,7 @@
 package com.skyebefreeman.examples.ratelimit.callee;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -90,7 +91,30 @@ public class BusinessController {
 					builder.append("TooManyRequests ").append(index.incrementAndGet()).append("\n");
 				}
 				else {
-					throw e;
+					e.printStackTrace();
+				}
+			}
+		}
+		return builder.toString();
+	}
+
+	@GetMapping("/invoke/per1s")
+	public String invokeInfoPer1Second(@RequestHeader MultiValueMap<String, String> sourceHeaders) throws InterruptedException {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < 30; i++) {
+			try {
+				HttpHeaders headers  = new HttpHeaders(sourceHeaders);
+				HttpEntity<JSONObject> httpEntity = new HttpEntity<>(headers);
+				ResponseEntity<String> exchange = restTemplate.exchange("http://" + appName + "/business/info", HttpMethod.GET, httpEntity, String.class);
+				builder.append(exchange.getBody());
+				TimeUnit.SECONDS.sleep(1);
+			}
+			catch (RestClientException | InterruptedException e) {
+				if (e instanceof TooManyRequests) {
+					builder.append("TooManyRequests ").append(index.incrementAndGet()).append("\n");
+				}
+				else {
+					e.printStackTrace();
 				}
 			}
 		}
@@ -119,7 +143,7 @@ public class BusinessController {
 						builder.append("TooManyRequests ").append(index.incrementAndGet()).append("\n");
 					}
 					else {
-						throw e;
+						e.printStackTrace();
 					}
 				}
 				count.countDown();

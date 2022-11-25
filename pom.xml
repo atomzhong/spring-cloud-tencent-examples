@@ -28,6 +28,7 @@
         <module>metadata-transfer-example</module>
         <module>polaris-router-grayrelease-example</module>
         <module>polaris-router-featureenv-example</module>
+        <module>quickstart-example</module>
     </modules>
 
     <properties>
@@ -37,6 +38,13 @@
         <spring.cloud.version>0.0.0</spring.cloud.version>
         <flatten-maven-plugin.version>1.2.7</flatten-maven-plugin.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>

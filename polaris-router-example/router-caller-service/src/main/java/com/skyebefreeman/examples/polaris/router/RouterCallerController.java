@@ -43,11 +43,12 @@ public class RouterCallerController {
 	 * @return info
 	 */
 	@GetMapping("/feign")
-	public String feign(@RequestParam String name, @RequestHeader MultiValueMap<String, String> headers) {
+	public String feign(@RequestParam String name, @RequestHeader MultiValueMap<String, String> headers,
+						@CookieValue(value = "autotest-cookie", defaultValue = "default-cookie") String cookie_value) {
 		User user = new User();
 		user.setName(name);
 		user.setAge(18);
-		return routerCalleeService.info(name, user, headers);
+		return routerCalleeService.info(name, user, headers, cookie_value);
 	}
 
 	/**
